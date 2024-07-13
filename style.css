@@ -5,6 +5,10 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
+/* Using root to set the color without typing the name of color */
+:root {
+    --main-color: red;
+}
 header {
     width: 100%;
     height: 100px;
@@ -19,7 +23,7 @@ header {
 }
 .logo h1 {
     margin: 20px;
-    color: red;
+    color: var(--main-color);
 }
 .nav {
     display: flex;
@@ -36,6 +40,9 @@ header {
     list-style: none;
     margin-right: 52px;
 
+}
+header .bar {
+    color: white;
 }
 main {
     width: 100%;
@@ -55,7 +62,7 @@ main {
     
 }
 .content button {
-    background-color: red;
+    background-color: var(--main-color);
     color: white;
     padding: 2px 25px;
     border: none;
@@ -76,7 +83,7 @@ main {
     margin-right: 10px;
 }
 .thre-points ul .the-one {
-    background-color: red;
+    background-color: var(--main-color);
     width: 15px;
     height: 15px;
 }
@@ -98,14 +105,69 @@ footer {
     align-items: center;
 }
 footer h1 {
+    /* Using position relative to use the before. */
     position: relative;
 }
 footer h1::before {
     content: '';
     position: absolute;
-    background-color: red;
+    background-color: var(--main-color);
     width: 60px;
     height: 4px;
     top: 60px;
     left: 140px;
 }
+/* Using media for the responsive */
+@media (max-width:430px){
+    .nav {
+        display: none;
+    }
+    .logo {
+        padding-left: 50px;
+    }
+    header .bar {
+        display: flex;
+        color: black;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px;
+        width: 100px;
+        height: 100%;
+    }
+    main {
+        display: flex;
+        justify-content: space-between;
+    }
+    main .content {
+        width: 50%;
+        height: 100%;
+        padding: 0px;
+        
+        
+    }
+    .content h1 {
+        margin-top: 40px;
+        padding-left: 20px;
+
+    }
+    .content p {
+        padding-left: 20px;
+    }
+    .content button {
+        margin-left: 20px;
+    }
+    main .pic{
+       width: 50%;
+    }
+    footer h1::before {
+        content: '';
+        position: absolute;
+        background-color: var(--main-color);
+        width: 50px;
+        height: 4px;
+        top: 40px;
+        left: 100px;
+    }
+
+    
+    }
